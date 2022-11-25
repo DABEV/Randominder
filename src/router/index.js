@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import ContentLayout from '../layout/ContentLayout.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: ContentLayout,
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: Home,
+      },
+    ],
   },
   {
     path: '/about',
