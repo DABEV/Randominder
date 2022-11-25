@@ -1,0 +1,21 @@
+.back-img-1{
+    background-image: url("../images/clock-blue.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.back-img-2{
+    background-image: url("../images/clock-yellow.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.back-outlined{
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

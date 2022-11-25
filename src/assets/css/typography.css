@@ -1,0 +1,20 @@
+.text-start {
+    text-align: start;
+}
+
+.text-middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.text-w-bold {
+    font-weight: bold;
+}
