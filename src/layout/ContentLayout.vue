@@ -16,7 +16,7 @@ export default {
 @import "../assets/css/content.css";
 @import "../assets/css/spacing.css";
 @import "../assets/css/colors.css";
-@import "../assets/css/backgroung.css";
+@import "../assets/css/background.css";
 @import "../assets/css/typography.css";
 @import "../assets/css/aligment.css";
 </style>
