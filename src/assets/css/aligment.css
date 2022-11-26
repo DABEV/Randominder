@@ -1,0 +1,17 @@
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.center-item {
+    display: flex !important;
+    align-items: center;
+    justify-content: center !important;
+    flex-wrap: wrap;
+}
+
+.end-item {
+    float: right !important;
+}
