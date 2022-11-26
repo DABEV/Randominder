@@ -1,5 +1,5 @@
 <template>
-  <div class="full-section">
+  <div class="full-content">
     <div class="center mt-4 text-center">
       <h2 class="back-outlined c-dark-yellow width-30 mt-4">Pricing</h2>
       <vs-row align="center" justify="center">
@@ -8,7 +8,7 @@
           :data="item"
           :key="i"
           w="3"
-          class="text-center pa-3 c-white"
+          class="text-center pa-4 c-white"
         >
           <div :class="item.color" style="height: 450px">
             <div>
@@ -18,7 +18,7 @@
                 </h4>
               </div>
               <div class="pa-2">{{ item.body }}</div>
-              <h2 class="mt-2">{{ item.price }}</h2>
+              <h1 class="mt-2">{{ item.price }}</h1>
             </div>
           </div>
           <div class="center button-card-fload">
