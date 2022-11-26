@@ -13,10 +13,9 @@
         <vs-col w="7">
           <h2 class="back-outlined width-50 mt-2 text-center">Randominder</h2>
           <div class="mt-2">
-            Lorem ipsum dolor sit amet consectetur. Auctor sapien elit nunc
-            tortor placerat et. Odio et bibendum varius rhoncus cras elementum
-            eget. Convallis tellus amet euismod platea euismod viverra faucibus
-            gravida. In vitae nullam imperdiet dictum etiam scelerisque sed eu.
+            Got any creative ideas that we could add to enhance your experience
+            with our app? Send your ideas so we can grow our site with your
+            help!
           </div>
           <div class="mt-2 text-w-bold">randominder@gmail.com</div>
         </vs-col>
@@ -27,32 +26,8 @@
 </template>
 
 <script>
-import MedalList from "./MedalList.vue";
-
 export default {
-  name: "Contact",
-  data: () => ({
-    prices: [
-      {
-        icon: "1",
-        title: "Beginner",
-      },
-      {
-        icon: "2",
-        title: "Music lover",
-      },
-      {
-        icon: "3",
-        title: "Super Chef",
-      },
-      {
-        icon: "4",
-        title: "Diamond heart",
-      },
-    ],
-  }),
-  components: {
-    MedalList,
-  },
-};
+  name: 'Contact',
+  data: () => ({}),
+}
 </script>
