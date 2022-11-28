@@ -16,6 +16,7 @@ body {
 .vs-select__label,
 .vs-input {
     font-family: 'Poppins';
+    width: 100% !important;
 }
 
 .full-content {
