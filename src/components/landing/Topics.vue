@@ -14,7 +14,7 @@
           <div class="text-w-bold mt-1">{{ item.title }}</div>
           <div class="mt-1">{{ item.body }}</div>
           <div class="center mt-1">
-            <vs-button :color="item.color" :to="item.ref"> Go to {{ item.title }} </vs-button>
+            <vs-button floating :color="item.color" :to="item.ref"> Go to {{ item.title }} </vs-button>
           </div>
         </vs-col>
       </vs-row>

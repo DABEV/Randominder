@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="center button-card-fload">
-            <vs-button :color="item.color_button" size="large" class="width-50">
+            <vs-button floating :color="item.color_button" size="large" class="width-50">
               I want it
             </vs-button>
           </div>
