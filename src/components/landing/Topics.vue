@@ -14,7 +14,7 @@
           <div class="text-w-bold mt-1">{{ item.title }}</div>
           <div class="mt-1">{{ item.body }}</div>
           <div class="center mt-1">
-            <vs-button :color="item.color"> Go to {{ item.title }} </vs-button>
+            <vs-button :color="item.color" :to="item.ref"> Go to {{ item.title }} </vs-button>
           </div>
         </vs-col>
       </vs-row>
@@ -32,18 +32,21 @@ export default {
         title: "Music",
         body: "Get songs by genre or randomly",
         color: "#FF99B4",
+        ref:"",
       },
       {
         icon: "2",
         title: "Activities",
         body: "Get random suggestions",
         color: "#FEBF1A",
+        ref:"/activities",
       },
       {
         icon: "3",
         title: "Recipes",
         body: "Find different cooking recipes",
         color: "#88D6E3",
+        ref:"",
       },
     ],
   }),
