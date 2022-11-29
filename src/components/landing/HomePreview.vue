@@ -30,7 +30,7 @@
                 Find new activities and get out of the routine with just one
                 click
               </div>
-              <vs-button color="#ff99b4" size="large"> Get started </vs-button>
+              <vs-button color="#ff99b4" size="large" to="/activities"> Get started </vs-button>
               <vs-row>
                 <vs-col w="9">
                   <ContentList />
