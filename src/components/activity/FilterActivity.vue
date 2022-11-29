@@ -90,7 +90,7 @@
         </vs-row>
         <vs-row class="center mt-3">
           <vs-avatar size="40" circle color="#BED4F0">
-            <i class="bx bxs-hand"></i>
+            <i class='bx bx-tachometer'></i>
           </vs-avatar>
           <vs-select
             class="pl-1"

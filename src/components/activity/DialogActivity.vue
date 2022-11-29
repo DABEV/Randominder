@@ -20,7 +20,7 @@
           </vs-row>
           <vs-row class="center mt-2">
             <vs-avatar size="30" circle color="#BED4F0">
-              <i class="bx bxs-hand"></i>
+              <i class='bx bx-tachometer'></i>
             </vs-avatar>
             <div v-if="data.accessibility <= 0.4" class="pl-1">Easy</div>
             <div v-else-if="data.accessibility == 0.5" class="pl-1">
