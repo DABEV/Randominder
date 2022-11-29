@@ -49,7 +49,7 @@
         </vs-col>
       </vs-row>
       <div v-if="data.link" class="mt-1 text-center">
-        <a :href="data.link">Recurso de apoyo</a>
+        <a :href="data.link">Additional Information</a>
       </div>
 
       <template #footer>
