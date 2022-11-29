@@ -40,7 +40,7 @@ export default {
           'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fdish.png?alt=media&token=0e66c819-4542-4a41-a6c1-36341511e8f5',
         type: 'Recipes',
         body: 'Find different cooking recipes',
-        ref: '',
+        ref: '/recipes',
       },
       {
         icon:
