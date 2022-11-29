@@ -178,10 +178,10 @@ export default {
     participants: 1,
     accessibility: 0,
     price: 0,
-    minAccessibility: 0,
-    maxAccessibility: 0,
-    minPrice: 0,
-    maxPrice: 0,
+    minAccessibility: '',
+    maxAccessibility: '',
+    minPrice: '',
+    maxPrice: '',
     type: '',
     activity: {},
   }),
@@ -193,14 +193,18 @@ export default {
       this.price = 0
     },
     getWithFilter() {
+    this.minAccessibility = '';
+    this.maxAccessibility = '';
+    this.minPrice = '';
+    this.maxPrice = '';
       switch (this.accessibility) {
         case '1':
           this.minAccessibility = 0
           this.maxAccessibility = 0.4
           break
         case '2':
-          this.minAccessibility = 0.5
-          this.maxAccessibility = 0.5
+          this.minAccessibility = 0.41
+          this.maxAccessibility = 0.59
           break
         case '3':
           this.minAccessibility = 0.6
@@ -214,8 +218,8 @@ export default {
           this.maxPrice = 0.4
           break
         case '2':
-          this.minPrice = 0.5
-          this.maxPrice = 0.5
+          this.minPrice = 0.41
+          this.maxPrice = 0.59
           break
         case '3':
           this.minPrice = 0.6
@@ -227,6 +231,7 @@ export default {
         this.participants = 1
       }
 
+      console.log(this.type)
       ActivityService.getWithFilter(
         this.minAccessibility,
         this.maxAccessibility,
@@ -236,6 +241,7 @@ export default {
         this.type,
       ).then((response) => {
         if (response.data) {
+          console.log(response.data)
           if (response.data.activity) {
             this.activity = response.data
             this.$refs.dialogActivity.changeActive()
