@@ -19,3 +19,9 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.back-outlined-sm{
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 15px;
+}

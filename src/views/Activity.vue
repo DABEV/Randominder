@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-back">
+  <div class="full-content bg-blue-back">
     <SelectActivity/>
   </div>
 </template>

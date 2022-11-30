@@ -14,11 +14,7 @@
         <Favs />
       </vs-col>
     </vs-row>
-    <vs-row justify="space-between">
-      <vs-col w="12" class="pa-2 bg-white ma-2 rounded shadow">
-        <TypeList />
-      </vs-col>
-    </vs-row>
+    <TypeList />
   </div>
 </template>
 
