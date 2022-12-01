@@ -56,20 +56,20 @@
         </vs-col>
       </vs-row>
       <vs-row justify="center" class="mt-3">
-        <vs-col lg="2">
-          <div class="center">
-            <vs-avatar size="40" circle color="#BED4F0">
-              <i class='bx bx-food-menu'></i>
-            </vs-avatar>
-          </div>
+        <vs-col lg="1">
+          <vs-avatar size="40" circle color="#BED4F0">
+            <i class="bx bx-food-menu"></i>
+          </vs-avatar>
         </vs-col>
         <vs-col lg="7">
           <vs-select
             label="Meal Type"
             v-model="type"
             filter
+            block
             placeholder="Meal Type"
             color="#BED4F0"
+            class="pl-2"
           >
             <vs-option label="Appetizer" value="appetizer">
               Appetizer
@@ -117,20 +117,20 @@
         </vs-col>
       </vs-row>
       <vs-row justify="center" class="mt-3">
-        <vs-col lg="2">
-          <div class="center">
-            <vs-avatar size="40" circle color="#FD9AB6">
-              <i class='bx bx-bowl-hot'></i>
-            </vs-avatar>
-          </div>
+        <vs-col lg="1">
+          <vs-avatar size="40" circle color="#FD9AB6">
+            <i class="bx bx-bowl-hot"></i>
+          </vs-avatar>
         </vs-col>
         <vs-col lg="7">
           <vs-select
             label="Cousine"
             v-model="cousine"
             filter
+            block
             placeholder="Cousine"
             color="#FD9AB6"
+            class="pl-2"
           >
             <vs-option label="African" value="african">
               African
@@ -214,77 +214,75 @@
         </vs-col>
       </vs-row>
       <vs-row justify="center" class="mt-3">
-        <vs-col lg="2">
-          <div class="center">
-            <vs-avatar size="40" circle color="#FEBF1A">
-              <i class='bx bx-error'></i>
-            </vs-avatar>
-          </div>
+        <vs-col lg="1">
+          <vs-avatar size="40" circle color="#FEBF1A">
+            <i class="bx bx-purchase-tag-alt"></i>
+          </vs-avatar>
         </vs-col>
         <vs-col lg="7">
           <vs-select
-            label="Intolerances"
-            v-model="intolerances"
+            label="Other tags"
+            v-model="other"
             filter
-            placeholder="Intolerances"
+            block
+            multiple
+            collapse-chips
+            placeholder="Other tags"
             color="#FEBF1A"
+            class="pl-2"
           >
-            <vs-option label="Dairy" value="dairy">
-              Dairy
+            <vs-option label="Dairy free" value="dairyFree">
+              Dairy free
             </vs-option>
-            <vs-option label="Egg" value="egg">
-              Egg
+            <vs-option label="Gluten free" value="glutenFree">
+              Gluten free
             </vs-option>
-            <vs-option label="Gluten" value="gluten">
-              Gluten
+            <vs-option label="Vegetarian" value="vegetarian">
+              Vegetarian
             </vs-option>
-            <vs-option label="Grain" value="grain">
-              Grain
-            </vs-option>
-            <vs-option label="Peanut" value="peanut">
-              Peanut
-            </vs-option>
-            <vs-option label="Seafood" value="seafood">
-              Seafood
-            </vs-option>
-            <vs-option label="Sesame" value="sesame">
-              Sesame
-            </vs-option>
-            <vs-option label="Shellfish" value="shellfish">
-              Shellfish
-            </vs-option>
-            <vs-option label="Soy" value="soy">
-              Soy
-            </vs-option>
-            <vs-option label="Sulfite" value="sulfite">
-              Sulfite
-            </vs-option>
-            <vs-option label="Tree Nut" value="tree nut">
-              Tree Nut
-            </vs-option>
-            <vs-option label="Wheat" value="wheat">
-              Wheat
+            <vs-option label="Vegan" value="vegan">
+              Vegan
             </vs-option>
           </vs-select>
         </vs-col>
       </vs-row>
     </div>
+
+    <RecipeDialog
+      :data="recipe"
+      ref="dialogRecipe"
+      @reloadSearch="getWithFilter"
+    />
   </div>
 </template>
 
 <script>
+import RecipeService from '../../service/RecipeService'
+import RecipeDialog from './RecipeDialog.vue'
+
 export default {
+  components: { RecipeDialog },
   name: 'SearchRecipe',
   data: () => ({
     type: '',
     cousine: '',
-    intolerances: '',
+    other: '',
+    recipe: {},
   }),
   methods: {
     clean() {
       this.type = ''
       this.cousine = ''
-      this.intolerances = ''
+      this.other = ''
+    },
+    getWithFilter() {},
+    getRandomly() {
+      RecipeService.getRandomly().then((response) => {
+        if (response.data) {
+          this.recipe = response.data.recipes[0]
+          this.$refs.dialogRecipe.changeActive()
+        }
+      })
     },
   },
 }
