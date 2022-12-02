@@ -6,7 +6,7 @@
         <vs-col lg="3" v-for="(item, i) in sections" :data="item" :key="i">
           <div class="center mt-4">
             <vs-avatar size="95" square color="#ffffff">
-              <img src="../../assets/images/music.svg" v-if="item.icon == 1"/>
+              <img src="../../assets/images/brain.svg" v-if="item.icon == 1"/>
               <img src="../../assets/images/activity.svg" v-if="item.icon == 2"/>
               <img src="../../assets/images/recipe.svg" v-if="item.icon == 3"/>
             </vs-avatar>
@@ -29,10 +29,10 @@ export default {
     sections: [
       {
         icon: "1",
-        title: "Music",
-        body: "Get songs by genre or randomly",
+        title: 'Trivia',
+        body: 'Try to solve a trivia topic of your choice',
         color: "#FF99B4",
-        ref:"",
+        ref:"/trivia",
       },
       {
         icon: "2",
@@ -46,7 +46,7 @@ export default {
         title: "Recipes",
         body: "Find different cooking recipes",
         color: "#88D6E3",
-        ref:"",
+        ref:"/recipes",
       },
     ],
   }),

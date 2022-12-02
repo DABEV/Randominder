@@ -2,10 +2,10 @@
   <div class="full-content bg-blue-back">
     <vs-row justify="space-between">
       <vs-col w="7" class="pa-2 bg-white ma-2 rounded shadow">
-        <FilterActivity />
+        <FilterTrivia />
       </vs-col>
       <vs-col w="4" class="pa-2 bg-white ma-2 rounded shadow mb-3">
-        <Favs />
+        <RecipeContent />
       </vs-col>
     </vs-row>
     <TypeList />
@@ -13,13 +13,12 @@
 </template>
 
 <script>
-import Favs from '../components/activity/Favs.vue'
-import FilterActivity from '../components/activity/FilterActivity.vue'
 import TypeList from '../components/activity/TypeList.vue'
+import FilterTrivia from '../components/trivia/FilterTrivia.vue'
 
 export default {
-  components: { FilterActivity, Favs, TypeList },
-  name: 'Activity',
+  components: { TypeList, FilterTrivia },
+  name: 'Trivia',
 }
 </script>
 
