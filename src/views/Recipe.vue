@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-back">
+  <div class="full-content bg-blue-back">
     <vs-row>
       <vs-col w="5"><SearchRecipe /></vs-col>
       <vs-col w="6">

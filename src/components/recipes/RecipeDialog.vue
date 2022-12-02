@@ -6,9 +6,32 @@
       </h3>
     </template>
     <div>
+      <vs-row justify="space-between" class="mb-2 px-2">
+        <vs-col lg="3">
+          <vs-button block floating color="#FD9AB6" @click="reloadSearch">
+            Search again
+          </vs-button>
+        </vs-col>
+        <vs-col lg="1">
+          <vs-button class="end-item" icon color="danger" floating circle>
+            <i class="bx bxs-heart"></i>
+          </vs-button>
+        </vs-col>
+      </vs-row>
       <vs-row>
         <vs-col lg="4" class="px-2">
-          <img :src="data.image" alt="" class="img-fluid rounded shadow" />
+          <img
+            v-if="data.image"
+            :src="data.image"
+            alt=""
+            class="img-fluid rounded shadow"
+          />
+          <img
+            v-else
+            src="https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fdish.png?alt=media&token=0e66c819-4542-4a41-a6c1-36341511e8f5"
+            alt=""
+            class="img-fluid rounded shadow"
+          />
           <vs-row class="mb-1 mt-1" v-if="data.dishTypes.length > 0">
             <vs-col lg="1">
               <vs-avatar size="30" circle color="#BED4F0">
@@ -88,9 +111,7 @@
                 <vs-avatar size="30" circle color="#FD9AB6">
                   <i class="bx bx-dollar-circle"></i>
                 </vs-avatar>
-                <div class="pl-1">
-                  Price: ${{ (data.pricePerServing)/10 }} dls
-                </div>
+                <div class="pl-1">Price: ${{ (data.pricePerServing) }} dls</div>
               </vs-row>
               <vs-row>
                 <vs-avatar size="30" circle color="#88D6E3">

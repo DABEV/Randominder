@@ -231,10 +231,10 @@
             color="#FEBF1A"
             class="pl-2"
           >
-            <vs-option label="Dairy free" value="dairyFree">
+            <vs-option label="Dairy free" value="dairy free">
               Dairy free
             </vs-option>
-            <vs-option label="Gluten free" value="glutenFree">
+            <vs-option label="Gluten free" value="gluten free">
               Gluten free
             </vs-option>
             <vs-option label="Vegetarian" value="vegetarian">
@@ -266,16 +266,34 @@ export default {
   data: () => ({
     type: '',
     cousine: '',
-    other: '',
+    other: [],
     recipe: {},
   }),
   methods: {
     clean() {
       this.type = ''
       this.cousine = ''
-      this.other = ''
+      this.other = []
     },
-    getWithFilter() {},
+    getWithFilter() {
+      let tags = ''
+      if (this.other.length > 0) {
+        this.other.forEach((element) => {
+          tags += element + ','
+        })
+      }
+
+      console.log(`tags=${this.type},${this.cousine},${tags}`)
+
+      RecipeService.getWithFilter(this.type, this.cousine, tags).then(
+        (response) => {
+          if (response.data) {
+            this.recipe = response.data.recipes[0]
+            this.$refs.dialogRecipe.changeActive()
+          }
+        },
+      )
+    },
     getRandomly() {
       RecipeService.getRandomly().then((response) => {
         if (response.data) {
