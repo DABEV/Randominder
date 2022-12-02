@@ -287,9 +287,11 @@ export default {
 
       RecipeService.getWithFilter(this.type, this.cousine, tags).then(
         (response) => {
-          if (response.data) {
+          if (response.data.recipes.length > 0) {
             this.recipe = response.data.recipes[0]
             this.$refs.dialogRecipe.changeActive()
+          } else {
+            this.openNotification()
           }
         },
       )
@@ -300,6 +302,15 @@ export default {
           this.recipe = response.data.recipes[0]
           this.$refs.dialogRecipe.changeActive()
         }
+      })
+    },
+    openNotification() {
+      this.$vs.notification({
+        sticky: true,
+        color: '#7DC4D9',
+        position: 'bottom-left',
+        title: 'Ups!',
+        text: 'Could not find a recipe with those filters',
       })
     },
   },
