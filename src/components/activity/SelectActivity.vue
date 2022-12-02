@@ -14,6 +14,7 @@
         <Favs />
       </vs-col>
     </vs-row>
+    <TypeList />
   </div>
 </template>
 

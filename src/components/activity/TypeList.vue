@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="center">
     <vs-card-group>
-      <vs-card v-for="(item, i) in categories" :data="item" :key="i">
+      <vs-card v-for="(item, i) in categories" :data="item" :key="i" type="3">
         <template #title>
           <h3>{{ item.type }}</h3>
         </template>
@@ -10,11 +10,11 @@
         </template>
         <template #text>
           <p>
-            Select this type of the activity
+            {{ item.body }}
           </p>
         </template>
         <template #interactions>
-          <vs-button danger floating>
+          <vs-button danger floating :to="item.ref">
             Go
           </vs-button>
         </template>
@@ -29,28 +29,25 @@ export default {
   data: () => ({
     categories: [
       {
-        icon: 'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fbooks.png?alt=media&token=7d1c6e65-4eb8-4bb3-8c76-203b6cda2ae2',
-        type: 'Education',
+        icon:
+          'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fmusic.png?alt=media&token=9d1084c1-06c9-4f80-b56d-69229187eeef',
+        type: 'Music',
+        body: 'Get songs by genre or randomly',
+        ref: '',
       },
       {
-        icon: 'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fgame.png?alt=media&token=4d341486-2fbc-41ce-8dc7-667b9a096d3d',
-        type: 'Recreational',
+        icon:
+          'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fdish.png?alt=media&token=0e66c819-4542-4a41-a6c1-36341511e8f5',
+        type: 'Recipes',
+        body: 'Find different cooking recipes',
+        ref: '/recipes',
       },
       {
-        icon: 'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fphone.png?alt=media&token=2cb4dd98-0d0a-44f3-8a82-058a611f5b40',
-        type: 'Social',
-      },
-      {
-        icon: 'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fdiy.png?alt=media&token=2158ce61-2e52-4e46-81cf-19f38ef587e2',
-        type: 'Diy',
-      },
-      {
-        icon: 'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fspa.jpg?alt=media&token=4d45bc03-3554-4f70-b86f-8dade402823e',
-        type: 'Relaxation',
-      },
-      {
-        icon: 'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Fwork.jpg?alt=media&token=979025b2-48eb-400a-9b69-cb538d0ead83',
-        type: 'Busywork',
+        icon:
+          'https://firebasestorage.googleapis.com/v0/b/pret-img.appspot.com/o/randominder%2Fsources%2Factivities.png?alt=media&token=45f47060-7157-4ba8-bf3a-162c0fa6b7c6',
+        type: 'Activities',
+        body: 'Get random suggestions',
+        ref: '/activities',
       },
     ],
   }),
