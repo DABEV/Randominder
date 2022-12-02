@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import SearchRecipe from '../components/recipes/SearchRecipe.vue'
+import SearchRecipe from '../components/recipes/FilterRecipe.vue'
 import RecipeContent from '../components/recipes/RecipeContent.vue'
 import TypeList from '../components/activity/TypeList.vue'
 
