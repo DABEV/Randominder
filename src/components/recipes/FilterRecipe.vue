@@ -256,7 +256,7 @@
 
 <script>
 import RecipeService from '../../service/RecipeService'
-import RecipeDialog from './RecipeDialog.vue'
+import RecipeDialog from './DialogRecipe.vue'
 
 export default {
   components: { RecipeDialog },
