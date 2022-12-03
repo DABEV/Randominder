@@ -143,14 +143,8 @@
           <vs-option label="Cajun" value="cajun">
             Cajun
           </vs-option>
-          <vs-option label="Caribbean" value="caribbean">
-            Caribbean
-          </vs-option>
           <vs-option label="Chinese" value="chinese">
             Chinese
-          </vs-option>
-          <vs-option label="Eastern European" value="eastern european">
-            Eastern European
           </vs-option>
           <vs-option label="European" value="european">
             European
@@ -173,17 +167,11 @@
           <vs-option label="Italian" value="italian">
             Italian
           </vs-option>
-          <vs-option label="Japanese" value="japanese">
-            Japanese
-          </vs-option>
           <vs-option label="Jewish" value="jewish">
             Jewish
           </vs-option>
           <vs-option label="Korean" value="korean">
             Korean
-          </vs-option>
-          <vs-option label="Latin American" value="Latin American">
-            Latin American
           </vs-option>
           <vs-option label="Mediterranean" value="mediterranean">
             Mediterranean
@@ -193,9 +181,6 @@
           </vs-option>
           <vs-option label="Middle Eastern" value="middle eastern">
             Middle Eastern
-          </vs-option>
-          <vs-option label="Nordic" value="nordic">
-            Nordic
           </vs-option>
           <vs-option label="Southern" value="southern">
             Southern
@@ -249,6 +234,7 @@
     <RecipeDialog
       :data="recipe"
       ref="dialogRecipe"
+      @reloadFavs="reloadFavs"
       @reloadSearch="getWithFilter"
     />
   </div>
@@ -281,18 +267,20 @@ export default {
         })
       }
 
-      console.log(`tags=${this.type},${this.cousine},${tags}`)
-
-      RecipeService.getWithFilter(this.type, this.cousine, tags).then(
-        (response) => {
-          if (response.data.recipes.length > 0) {
-            this.recipe = response.data.recipes[0]
-            this.$refs.dialogRecipe.changeActive()
-          } else {
-            this.openNotification()
-          }
-        },
-      )
+      if (this.type != '' || this.cousine != '' || tags != '') {
+        RecipeService.getWithFilter(this.type, this.cousine, tags).then(
+          (response) => {
+            if (response.data.recipes.length > 0) {
+              this.recipe = response.data.recipes[0]
+              this.$refs.dialogRecipe.changeActive()
+            } else {
+              this.openNotification()
+            }
+          },
+        )
+      }else{
+        this.getRandomly()
+      }
     },
     getRandomly() {
       RecipeService.getRandomly().then((response) => {
@@ -301,6 +289,9 @@ export default {
           this.$refs.dialogRecipe.changeActive()
         }
       })
+    },
+    reloadFavs() {
+      this.$emit('reloadFavs')
     },
     openNotification() {
       this.$vs.notification({
