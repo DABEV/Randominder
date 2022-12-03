@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Activity from '../views/Activity.vue'
 import Recipe from '../views/Recipe.vue'
+import Trivia from '../views/Trivia.vue'
 import ContentLayout from '../layout/ContentLayout.vue'
 
 Vue.use(VueRouter)
@@ -26,6 +27,11 @@ const routes = [
         path: "recipes",
         name: "Recipe",
         component: Recipe,
+      },
+      {
+        path: "trivia",
+        name: "Trivia",
+        component: Trivia,
       },
     ],
   },
