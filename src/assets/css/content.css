@@ -128,3 +128,7 @@ body {
 .img-nav {
     width: 34px;
 }
+
+.item-list:hover {
+    background: rgba(var(--vs-gray-3), 1) !important;
+}

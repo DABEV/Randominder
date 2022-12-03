@@ -2,10 +2,10 @@
   <div class="full-content bg-blue-back">
     <vs-row justify="space-between">
       <vs-col w="7" class="pa-2 bg-white ma-2 rounded shadow">
-        <SearchRecipe />
+        <SearchRecipe @reloadFavs="reloadFavs" ref="searchRecipe" />
       </vs-col>
       <vs-col w="4" class="pa-2 bg-white ma-2 rounded shadow mb-3">
-        <RecipeContent />
+        <RecipeContent ref="recipeContent" @reloadSearch="reloadSearch" />
       </vs-col>
     </vs-row>
     <TypeList />
@@ -22,6 +22,13 @@ export default {
   name: 'Recipe',
   TypeList: 'Recipe',
   data: () => ({}),
-  methods: {},
+  methods: {
+    reloadFavs() {
+      this.$refs.recipeContent.getFavs()
+    },
+    reloadSearch() {
+      this.$refs.searchRecipe.getWithFilter()
+    },
+  },
 }
 </script>

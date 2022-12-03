@@ -13,7 +13,14 @@
           </vs-button>
         </vs-col>
         <vs-col lg="1">
-          <vs-button class="end-item" icon color="danger" floating circle>
+          <vs-button
+            class="end-item"
+            icon
+            color="danger"
+            floating
+            circle
+            @click="addFav"
+          >
             <i class="bx bxs-heart"></i>
           </vs-button>
         </vs-col>
@@ -222,6 +229,7 @@ export default {
   data: () => ({
     active: false,
     step: 1,
+    recipeList: [],
   }),
   methods: {
     changeActive() {
@@ -231,6 +239,45 @@ export default {
     reloadSearch() {
       this.active = false
       this.$emit('reloadSearch')
+    },
+    addFav() {
+      let list = localStorage.getItem('recipe-favs')
+      list = JSON.parse(list)
+      if (list) {
+        const fav = list.find(({ id }) => id === this.data.id);
+        if (fav) {
+          this.openNotification(
+            '#7DC4D9',
+            'Ups!',
+            'This recipe is already in favs',
+          )
+        } else {
+          list.push(this.data)
+          localStorage.setItem('recipe-favs', JSON.stringify(list))
+          this.openNotification(
+            'success',
+            'Successful!',
+            'Recipe added in favs',
+          )
+        }
+      } else {
+        list.push(this.data)
+        localStorage.setItem('recipe-favs', JSON.stringify(list))
+        this.openNotification('success', 'Successful!', 'Recipe added in favs')
+      }
+      this.reloadFavs()
+    },
+    reloadFavs() {
+      this.$emit('reloadFavs')
+    },
+    openNotification(color, title, text) {
+      this.$vs.notification({
+        sticky: true,
+        color: color,
+        position: 'bottom-left',
+        title: title,
+        text: text,
+      })
     },
   },
   props: {
