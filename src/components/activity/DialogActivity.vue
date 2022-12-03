@@ -66,8 +66,10 @@
           </vs-row>
         </vs-col>
       </vs-row>
-      <div v-if="data.link" class="mt-1 text-center">
-        <a :href="data.link">Additional Information</a>
+      <div v-if="data.link" class="mt-1 center">
+        <vs-button :href="data.link" blank floating color="#88D6E3">
+          Additional Information
+        </vs-button>
       </div>
     </vs-dialog>
   </div>
@@ -103,7 +105,10 @@ export default {
           )
         } else {
           this.activityList.push(this.data)
-          localStorage.setItem('activity-favs', JSON.stringify(this.activityList))
+          localStorage.setItem(
+            'activity-favs',
+            JSON.stringify(this.activityList),
+          )
           this.openNotification(
             'success',
             'Successful!',
