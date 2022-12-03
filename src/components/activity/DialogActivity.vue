@@ -6,7 +6,25 @@
           Activity
         </h3>
       </template>
-
+      <vs-row justify="space-between" class="mb-2 px-2">
+        <vs-col lg="5">
+          <vs-button block floating color="#FD9AB6" @click="reloadSearch">
+            Search again
+          </vs-button>
+        </vs-col>
+        <vs-col lg="1">
+          <vs-button
+            class="end-item"
+            icon
+            color="danger"
+            floating
+            circle
+            @click="addFav"
+          >
+            <i class="bx bxs-heart"></i>
+          </vs-button>
+        </vs-col>
+      </vs-row>
       <div class="text-center">
         {{ data.activity }}
       </div>
@@ -20,7 +38,7 @@
           </vs-row>
           <vs-row class="center mt-2">
             <vs-avatar size="30" circle color="#BED4F0">
-              <i class='bx bx-tachometer'></i>
+              <i class="bx bx-tachometer"></i>
             </vs-avatar>
             <div v-if="data.accessibility <= 0.4" class="pl-1">Easy</div>
             <div v-else-if="data.accessibility == 0.5" class="pl-1">
@@ -51,14 +69,6 @@
       <div v-if="data.link" class="mt-1 text-center">
         <a :href="data.link">Additional Information</a>
       </div>
-
-      <template #footer>
-        <div class="mt-1">
-          <vs-button block floating color="#FD9AB6" @click="reloadSearch">
-            Search again
-          </vs-button>
-        </div>
-      </template>
     </vs-dialog>
   </div>
 </template>
@@ -69,6 +79,7 @@ export default {
   data: () => ({
     active: false,
     activity: {},
+    activityList: [],
   }),
   methods: {
     changeActive() {
@@ -77,6 +88,50 @@ export default {
     reloadSearch() {
       this.active = false
       this.$emit('reloadSearch')
+    },
+    addFav() {
+      let list = localStorage.getItem('activity-favs')
+      list = JSON.parse(list)
+      if (list) {
+        this.activityList = list
+        const fav = this.activityList.find(({ key }) => key === this.data.key)
+        if (fav) {
+          this.openNotification(
+            '#7DC4D9',
+            'Ups!',
+            'This activity is already in favs',
+          )
+        } else {
+          this.activityList.push(this.data)
+          localStorage.setItem('activity-favs', JSON.stringify(this.activityList))
+          this.openNotification(
+            'success',
+            'Successful!',
+            'Activity added in favs',
+          )
+        }
+      } else {
+        this.activityList.push(this.data)
+        localStorage.setItem('activity-favs', JSON.stringify(this.activityList))
+        this.openNotification(
+          'success',
+          'Successful!',
+          'activity added in favs',
+        )
+      }
+      this.reloadFavs()
+    },
+    reloadFavs() {
+      this.$emit('reloadFavs')
+    },
+    openNotification(color, title, text) {
+      this.$vs.notification({
+        sticky: true,
+        color: color,
+        position: 'bottom-left',
+        title: title,
+        text: text,
+      })
     },
   },
   props: {
