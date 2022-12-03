@@ -88,6 +88,7 @@ export default {
   }),
   methods: {
     getFavs() {
+      this.page = 1
       let list = localStorage.getItem('recipe-favs')
       this.recipeList = JSON.parse(list)
     },

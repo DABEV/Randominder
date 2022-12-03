@@ -144,6 +144,7 @@
     <DialogActivity
       :data="activity"
       ref="dialogActivity"
+      @reloadFavs="reloadFavs"
       @reloadSearch="getWithFilter"
     />
   </div>
@@ -217,6 +218,9 @@ export default {
           this.$refs.dialogActivity.changeActive()
         }
       })
+    },
+    reloadFavs() {
+      this.$emit('reloadFavs')
     },
     openNotification() {
       const noti = this.$vs.notification({

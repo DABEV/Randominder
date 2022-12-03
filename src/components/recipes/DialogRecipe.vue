@@ -244,7 +244,8 @@ export default {
       let list = localStorage.getItem('recipe-favs')
       list = JSON.parse(list)
       if (list) {
-        const fav = list.find(({ id }) => id === this.data.id);
+        this.recipeList = list
+        const fav = this.recipeList.find(({ id }) => id === this.data.id);
         if (fav) {
           this.openNotification(
             '#7DC4D9',
@@ -252,8 +253,8 @@ export default {
             'This recipe is already in favs',
           )
         } else {
-          list.push(this.data)
-          localStorage.setItem('recipe-favs', JSON.stringify(list))
+          this.recipeList.push(this.data)
+          localStorage.setItem('recipe-favs', JSON.stringify(this.recipeList))
           this.openNotification(
             'success',
             'Successful!',
@@ -261,8 +262,8 @@ export default {
           )
         }
       } else {
-        list.push(this.data)
-        localStorage.setItem('recipe-favs', JSON.stringify(list))
+        this.recipeList.push(this.data)
+        localStorage.setItem('recipe-favs', JSON.stringify(this.recipeList))
         this.openNotification('success', 'Successful!', 'Recipe added in favs')
       }
       this.reloadFavs()

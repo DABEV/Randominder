@@ -8,13 +8,11 @@ class ActivityService {
   getWithFilter(
     minAccesibility,
     maxAccesibility,
-    minPrice,
-    maxPrice,
     participants,
     type
   ) {
     return API.get(
-      `/?participants=${participants}&minprice=${minPrice}&maxprice=${maxPrice}&minaccessibility=${minAccesibility}&maxaccessibility=${maxAccesibility}&type=${type}`
+      `/?participants=${participants}&minaccessibility=${minAccesibility}&maxaccessibility=${maxAccesibility}&type=${type}`
     );
   }
 }
