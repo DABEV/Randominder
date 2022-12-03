@@ -10,7 +10,7 @@ class TriviaService {
     difficulty
   ) {
     return API.get(
-      `?categories=${categories}&difficulty=${difficulty}&limit=1`
+      `?${categories}&difficulty=${difficulty}&limit=1`
     );
   }
 }

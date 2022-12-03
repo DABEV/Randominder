@@ -150,31 +150,36 @@ export default {
   name: 'FilterTrivia',
   data: () => ({
     category: '',
-    difficulty: '',
+    categoryData: '',
+    difficulty: 'easy',
     trivia: [],
   }),
   methods: {
     clean() {
       this.category = ''
-      this.difficulty = ''
+      this.difficulty = 'easy'
+      this.categoryData = ''
     },
     getWithFilter() {
-      TriviaService.getWithFilter(this.category,this.difficulty).then((response) => {
-        if (response.data) {
-          console.log()
-          if (response.data.length > 0) {
-            this.trivia = response.data[0]
-            this.$refs.dialogTrivia.changeActive()
-          } else {
-            this.openNotification()
+      if(this.category != ''){
+        this.categoryData = `categories=${this.category}`
+      }
+      TriviaService.getWithFilter(this.categoryData, this.difficulty).then(
+        (response) => {
+          if (response.data) {
+            if (response.data.length > 0) {
+              this.trivia = response.data[0]
+              this.$refs.dialogTrivia.changeActive()
+            } else {
+              this.openNotification()
+            }
           }
-        }
-      })
+        },
+      )
     },
     getRandomly() {
       TriviaService.getRandomly().then((response) => {
         if (response.data) {
-          console.log()
           if (response.data.length > 0) {
             this.trivia = response.data[0]
             this.$refs.dialogTrivia.changeActive()
