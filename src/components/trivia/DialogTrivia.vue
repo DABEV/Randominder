@@ -111,7 +111,7 @@ export default {
       this.$vs.notification({
         sticky: true,
         color: color,
-        position: 'top-right',
+        position: 'top-center',
         title: title,
         text: text,
       })
