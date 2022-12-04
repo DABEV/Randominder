@@ -65,6 +65,7 @@
           class="pl-2"
           label="Type"
           block
+          filter
           placeholder="Type"
           v-model="type"
           color="#FD9AB6"
