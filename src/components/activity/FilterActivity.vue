@@ -131,14 +131,34 @@
         </vs-avatar>
       </vs-col>
       <vs-col lg="7">
-        <vs-input
+        <vs-select
           class="pl-2"
-          color="#FEBF1A"
-          block
-          v-model="participants"
           label="Participants"
-          type="number"
-        />
+          block
+          filter
+          placeholder="Participants"
+          v-model="participants"
+          color="#FEBF1A"
+        >
+          <vs-option label="1 person" value="1">
+            1 person
+          </vs-option>
+          <vs-option label="2 people" value="2">
+            2 people
+          </vs-option>
+          <vs-option label="3 people" value="3">
+            3 people
+          </vs-option>
+          <vs-option label="4 people" value="4">
+            4 people
+          </vs-option>
+          <vs-option label="5 people" value="5">
+            5 people
+          </vs-option>
+          <vs-option label="8 people" value="8">
+            8 people
+          </vs-option>
+        </vs-select>
       </vs-col>
     </vs-row>
 

@@ -23,7 +23,7 @@
           </div>
           <div class="center button-card-fload">
             <vs-button floating :color="item.color_button" size="large" class="width-50">
-              I want it
+              I want it!
             </vs-button>
           </div>
         </vs-col>
@@ -40,21 +40,21 @@ export default {
       {
         price: "$0.00",
         title: "Personal",
-        body: "Free to use with a restriction of 5 daily requests per topic",
+        body: "Free unlimited access to trivia quizzess and activities sections with small ads",
         color: "bg-light-blue rounded center",
         color_button: "#FF99B4",
       },
       {
-        price: "$1.00",
+        price: "$1.99",
         title: "Professional",
-        body: "Unlimited service with special prizes,  exclusive medals",
+        body: "Unlimited access to cooking recipes section and favorites tab, ads free",
         color: "bg-dark-pink rounded center",
         color_button: "#FEBF1A",
       },
       {
-        price: "$1.50",
+        price: "$2.49",
         title: "Dedicate",
-        body: "Professional benefits + sharing options",
+        body: "Access to various rewards and medals for successfully completeing tasks",
         color: "bg-dark-yellow rounded center",
         color_button: "#88D6E3",
       },
